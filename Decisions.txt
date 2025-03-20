@@ -1,0 +1,35 @@
+I have implemented a mini project that simulates one game of chess between a white an black player.
+I used a CLI with suggestive messages , telling or warning each player of their decisions.
+I have created a simple visual representation of the chess board with the columns from a to h and rows from 1 to 8 , in code they are 0 indexed
+Some rules implemented : check if valid move for each piece selectd
+Further rules implemented : En Parsant ,Promote Pawn, Castling , Check verifications (that includes : verify is king is in check and notify
+verify if after desired move for king it still gets into check , and notify to try again , checks if a piece wants to move , if that move would occur the king will be in check)
+The thought of ending the game:
+one player can exit at any time
+if one`s king is in check it is notified , if the player tried all the movements and it still displays that the king is in check he can end and admit defeat
+
+Also for draw: it`s up to the players to end the game and conclude draw , maybe if there are few pieces left and no move is succesful to make a check.
+
+There is the main function that calls a static problem() function from Board class.
+Board class jas the CLI and several board setting , displays and verification methods
+There are the classes for each piece but also an empty place class (for better implementation of the swap logic)
+The Piece abstract class has 2 abstract (virtual) methods on for print and one for check valid move which must be implemented by each subclass (polymorfism)
+In the check_valid_move fucntion the matrix (chessboard) along with the coordinates for start and end move , are being passed
+I have used some java color paleting in the display function , depending on the object piec colour , increases readability on the board
+
+The board has , later in the game ,some minor issues with the view of the pieces , differences of white space and aligment
+Also there is a display method in which captured pieces are displayed
+
+Some imporvements that i would have made:
+instead of using as user interface a CLI , a real UI , like on Chess.com with a great view of the chess board would be great
+at check , i could have said which piece(s) are attacking the king not just that there is a check
+
+Important note: there are a few checks when entering the coordinates , however the program has been build to accept
+a string followed by a white space followed by a string , all of them from the left side of the CLI 
+like:
+2 e
+4 e
+... i could have ensured ,as improvement,that even 
+   2   e
+or 
+2   e would work...
